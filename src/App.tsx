@@ -1,6 +1,8 @@
+import { Routes, Route } from "react-router-dom"
+import { LoginPage } from "@/pages/login"
 import { Button } from "@/components/ui/button"
 
-export function App() {
+function HomePage() {
   return (
     <div className="flex min-h-svh p-6">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
@@ -15,6 +17,15 @@ export function App() {
         </div>
       </div>
     </div>
+  )
+}
+
+export function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   )
 }
 
