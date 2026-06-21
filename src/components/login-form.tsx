@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
     Field,
-    FieldDescription,
     FieldGroup,
     FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { Footer } from "@/components/layout/footer";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -122,9 +122,7 @@ export function LoginForm({
           </div>
         </CardContent>
       </Card>
-      <FieldDescription className="px-6 text-center">
-        Portal Gestão NOC — Monitorando redes, garantindo conectividade.
-      </FieldDescription>
+      <Footer />
     </div>
   )
 }

@@ -91,7 +91,7 @@ export function NetworkComponentsPage() {
   }
 
   return (
-    <div className="flex min-h-svh flex-col gap-6 p-6">
+    <div className="flex flex-1 flex-col gap-6 p-6">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-heading font-semibold tracking-tight">
