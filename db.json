@@ -30,6 +30,26 @@
       "id": "3",
       "name": "Firewall",
       "description": "Dispositivo de seguranca de rede"
+    },
+    {
+      "id": "4",
+      "name": "Access Point",
+      "description": "Ponto de acesso sem fio Wi-Fi"
+    },
+    {
+      "id": "5",
+      "name": "Load Balancer",
+      "description": "Balanceador de carga para distribuição de tráfego"
+    },
+    {
+      "id": "6",
+      "name": "Servidor",
+      "description": "Servidor físico ou virtual de aplicações"
+    },
+    {
+      "id": "7",
+      "name": "Link WAN",
+      "description": "Enlace de rede de longa distância"
     }
   ],
   "network-components": [
@@ -56,6 +76,118 @@
       "description": "Firewall de borda da rede",
       "ipAddress": "10.0.0.254",
       "connectedToId": 1
+    },
+    {
+      "id": "4",
+      "typeId": 2,
+      "name": "Switch Distribution 01",
+      "description": "Switch de distribuição do datacenter",
+      "ipAddress": "10.0.2.1",
+      "connectedToId": 1
+    },
+    {
+      "id": "5",
+      "typeId": 2,
+      "name": "Switch Access 02",
+      "description": "Switch de acesso do andar 2",
+      "ipAddress": "10.0.1.2",
+      "connectedToId": 4
+    },
+    {
+      "id": "6",
+      "typeId": 2,
+      "name": "Switch Access 03",
+      "description": "Switch de acesso do andar 3",
+      "ipAddress": "10.0.1.3",
+      "connectedToId": 4
+    },
+    {
+      "id": "7",
+      "typeId": 4,
+      "name": "AP Corporativo 01",
+      "description": "Access point do andar 1 - sala de reuniões",
+      "ipAddress": "10.0.3.1",
+      "connectedToId": 2
+    },
+    {
+      "id": "8",
+      "typeId": 4,
+      "name": "AP Corporativo 02",
+      "description": "Access point do andar 2 - área comum",
+      "ipAddress": "10.0.3.2",
+      "connectedToId": 5
+    },
+    {
+      "id": "9",
+      "typeId": 5,
+      "name": "Load Balancer Web",
+      "description": "Balanceador de carga para servidores web",
+      "ipAddress": "10.0.4.1",
+      "connectedToId": 3
+    },
+    {
+      "id": "10",
+      "typeId": 6,
+      "name": "Servidor Web 01",
+      "description": "Servidor de aplicação web primário",
+      "ipAddress": "10.0.5.1",
+      "connectedToId": 9
+    },
+    {
+      "id": "11",
+      "typeId": 6,
+      "name": "Servidor Web 02",
+      "description": "Servidor de aplicação web secundário",
+      "ipAddress": "10.0.5.2",
+      "connectedToId": 9
+    },
+    {
+      "id": "12",
+      "typeId": 6,
+      "name": "Servidor de Banco de Dados",
+      "description": "Servidor principal de banco de dados PostgreSQL",
+      "ipAddress": "10.0.5.10",
+      "connectedToId": 4
+    },
+    {
+      "id": "13",
+      "typeId": 7,
+      "name": "Link WAN Operadora A",
+      "description": "Enlace de 1Gbps com operadora principal",
+      "ipAddress": "200.100.10.1",
+      "connectedToId": 1
+    },
+    {
+      "id": "14",
+      "typeId": 1,
+      "name": "Router Filial RJ",
+      "description": "Roteador da filial Rio de Janeiro",
+      "ipAddress": "10.1.0.1",
+      "connectedToId": 13
+    },
+    {
+      "id": "15",
+      "typeId": 3,
+      "name": "Firewall Filial RJ",
+      "description": "Firewall de borda da filial Rio de Janeiro",
+      "ipAddress": "10.1.0.254",
+      "connectedToId": 14
+    },
+    {
+      "typeId": 2,
+      "name": "354",
+      "description": "345",
+      "ipAddress": "127.0.0.1",
+      "connectedToId": 2,
+      "id": "k66exOfKtzI"
+    },
+    {
+      "typeId": 3,
+      "name": "890",
+      "description": "809",
+      "ipAddress": "809",
+      "connectedToId": 2,
+      "id": "Ca12hv5kKzc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

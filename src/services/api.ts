@@ -1,11 +1,17 @@
 import type {
-  NetworkComponentType,
-  NetworkComponent,
-} from "@/types/network-component"
+    NetworkComponent,
+    NetworkComponentType,
+} from "@/types/network-component";
 
 const API_BASE = "/api"
+const SIMULATED_DELAY = 5000
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
+  await delay(SIMULATED_DELAY)
   const response = await fetch(`${API_BASE}${url}`, init)
   if (!response.ok) {
     throw new Error(`API error: ${response.status} ${response.statusText}`)
@@ -45,6 +51,7 @@ export async function updateComponentType(
 }
 
 export async function deleteComponentType(id: number): Promise<void> {
+  await delay(SIMULATED_DELAY)
   await fetch(`${API_BASE}/network-component-types/${id}`, {
     method: "DELETE",
   })
@@ -82,5 +89,30 @@ export async function updateComponent(
 }
 
 export async function deleteComponent(id: number): Promise<void> {
+  await delay(SIMULATED_DELAY)
   await fetch(`${API_BASE}/network-components/${id}`, { method: "DELETE" })
+}
+
+export interface PagedResult<T> {
+  data: T[]
+  items: number
+  pages: number
+}
+
+export async function fetchComponentTypesPaged(
+  page: number,
+  perPage: number
+): Promise<PagedResult<NetworkComponentType>> {
+  return request<PagedResult<NetworkComponentType>>(
+    `/network-component-types?_page=${page}&_per_page=${perPage}`
+  )
+}
+
+export async function fetchComponentsPaged(
+  page: number,
+  perPage: number
+): Promise<PagedResult<NetworkComponent>> {
+  return request<PagedResult<NetworkComponent>>(
+    `/network-components?_page=${page}&_per_page=${perPage}`
+  )
 }
