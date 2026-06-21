@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import { LoginPage } from "@/pages/login"
+import { ComponentTypesPage } from "@/pages/component-types"
+import { NetworkComponentsPage } from "@/pages/network-components"
 import { Button } from "@/components/ui/button"
 
 function HomePage() {
@@ -25,6 +27,8 @@ export function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/component-types" element={<ComponentTypesPage />} />
+      <Route path="/network-components" element={<NetworkComponentsPage />} />
     </Routes>
   )
 }

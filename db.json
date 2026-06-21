@@ -1,18 +1,62 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "usuario": "admin",
       "password": "admin123",
       "role": "admin",
       "nome": "Administrador"
     },
     {
-      "id": 2,
+      "id": "2",
       "usuario": "usuario",
       "password": "usuario123",
       "role": "user",
       "nome": "Usuário Padrão"
     }
-  ]
+  ],
+  "network-component-types": [
+    {
+      "name": "Roteador",
+      "description": "Dispositivo de roteamento de pacotes Ik",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Switch",
+      "description": "Comutador de rede camada 2"
+    },
+    {
+      "id": "3",
+      "name": "Firewall",
+      "description": "Dispositivo de seguranca de rede"
+    }
+  ],
+  "network-components": [
+    {
+      "id": "1",
+      "typeId": 1,
+      "name": "Router Core SP",
+      "description": "Roteador principal do backbone",
+      "ipAddress": "10.0.0.1",
+      "connectedToId": null
+    },
+    {
+      "id": "2",
+      "typeId": 2,
+      "name": "Switch Access 01",
+      "description": "Switch de acesso do andar 1",
+      "ipAddress": "10.0.1.1",
+      "connectedToId": 1
+    },
+    {
+      "id": "3",
+      "typeId": 3,
+      "name": "Firewall Perimeter",
+      "description": "Firewall de borda da rede",
+      "ipAddress": "10.0.0.254",
+      "connectedToId": 1
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
